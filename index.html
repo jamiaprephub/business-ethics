@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Ethics & Corporate Governance — JMI BBA Sem II</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --card: #1a1e2a;
+    --border: #252a38;
+    --accent1: #f4c542;
+    --accent2: #e05c5c;
+    --accent3: #5ca9e0;
+    --accent4: #5ce0a8;
+    --text: #e8ecf4;
+    --muted: #8892aa;
+    --heading: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: linear-gradient(135deg, #1a1e2a 0%, #0d1020 60%, #16101a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 24px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(244,197,66,0.08) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(244,197,66,0.12);
+    border: 1px solid rgba(244,197,66,0.3);
+    color: var(--accent1);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5vw, 36px);
+    font-weight: 900;
+    color: var(--heading);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: var(--accent1); }
+  .hero p { color: var(--muted); font-size: 13px; }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-meta span {
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 6px;
+  }
+  .hero-meta span b { color: var(--accent1); }
+
+  /* ── TABS ── */
+  .tabs-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .tabs {
+    display: flex;
+    gap: 2px;
+    padding: 8px 12px;
+    min-width: max-content;
+  }
+  .tab-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--text); border-color: var(--border); }
+  .tab-btn.active {
+    background: rgba(244,197,66,0.12);
+    border-color: rgba(244,197,66,0.35);
+    color: var(--accent1);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .tab-panel { display: none; padding: 24px 16px 60px; max-width: 860px; margin: 0 auto; }
+  .tab-panel.active { display: block; }
+
+  /* ── TYPOGRAPHY ── */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--heading);
+    margin: 32px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  h2:first-child { margin-top: 0; }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent1);
+    margin: 22px 0 8px;
+    letter-spacing: 0.3px;
+  }
+  h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent3);
+    margin: 16px 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  p { margin-bottom: 10px; }
+  strong { color: var(--heading); font-weight: 600; }
+  em { color: var(--accent4); font-style: normal; font-weight: 500; }
+
+  ul, ol { padding-left: 18px; margin-bottom: 10px; }
+  li { margin-bottom: 5px; }
+  li::marker { color: var(--accent1); }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .card-yellow { border-left: 3px solid var(--accent1); }
+  .card-red { border-left: 3px solid var(--accent2); }
+  .card-blue { border-left: 3px solid var(--accent3); }
+  .card-green { border-left: 3px solid var(--accent4); }
+
+  .tip-box {
+    background: rgba(244,197,66,0.07);
+    border: 1px solid rgba(244,197,66,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 13.5px;
+  }
+  .tip-box::before {
+    content: '💡 EXAM TIP: ';
+    font-weight: 700;
+    color: var(--accent1);
+  }
+
+  .mistake-box {
+    background: rgba(224,92,92,0.07);
+    border: 1px solid rgba(224,92,92,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 13.5px;
+  }
+  .mistake-box::before {
+    content: '⚠️ COMMON MISTAKE: ';
+    font-weight: 700;
+    color: var(--accent2);
+  }
+
+  .def-box {
+    background: rgba(92,169,224,0.08);
+    border: 1px solid rgba(92,169,224,0.25);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .def-box-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent3);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .mnemonic-box {
+    background: rgba(92,224,168,0.07);
+    border: 1px solid rgba(92,224,168,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .mnemonic-box::before {
+    content: '🧠 MEMORY TRICK: ';
+    font-weight: 700;
+    color: var(--accent4);
+    font-size: 13px;
+  }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 14px 0; border-radius: 10px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 400px;
+  }
+  thead tr { background: rgba(244,197,66,0.1); }
+  th {
+    text-align: left;
+    padding: 10px 14px;
+    color: var(--accent1);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(37,42,56,0.6);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ── ANSWER BOXES ── */
+  .answer-section { margin: 18px 0; }
+  .answer-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .label-2m { background: rgba(92,224,168,0.15); color: var(--accent4); border: 1px solid rgba(92,224,168,0.3); }
+  .label-5m { background: rgba(92,169,224,0.15); color: var(--accent3); border: 1px solid rgba(92,169,224,0.3); }
+  .label-10m { background: rgba(244,197,66,0.15); color: var(--accent1); border: 1px solid rgba(244,197,66,0.3); }
+
+  /* ── KEYWORDS ── */
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .kw {
+    background: rgba(244,197,66,0.1);
+    border: 1px solid rgba(244,197,66,0.25);
+    color: var(--accent1);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  /* ── UNIT BADGE ── */
+  .unit-header {
+    background: linear-gradient(90deg, rgba(244,197,66,0.1) 0%, transparent 100%);
+    border: 1px solid rgba(244,197,66,0.2);
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .unit-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent1);
+    opacity: 0.3;
+    line-height: 1;
+  }
+  .unit-info h3 { margin: 0 0 4px; font-size: 16px; color: var(--heading); }
+  .unit-info p { margin: 0; font-size: 12px; color: var(--muted); }
+
+  /* ── STAR RATING ── */
+  .importance { font-size: 12px; color: var(--accent1); margin-left: 6px; }
+
+  /* ── QUESTION LIST ── */
+  .q-list { list-style: none; padding: 0; }
+  .q-list li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .q-num {
+    background: rgba(244,197,66,0.15);
+    color: var(--accent1);
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── GRID ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media(max-width:600px){ .two-col { grid-template-columns: 1fr; } }
+
+  /* ── DAY PLAN ── */
+  .day-block {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .day-header {
+    background: rgba(244,197,66,0.1);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .day-header h3 { margin: 0; color: var(--accent1); font-size: 14px; }
+  .day-header span { font-size: 12px; color: var(--muted); }
+  .day-body { padding: 16px 18px; }
+  .time-slot {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(37,42,56,0.5);
+    font-size: 13px;
+  }
+  .time-slot:last-child { border-bottom: none; }
+  .time { color: var(--accent3); font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+
+  /* ── SCROLL ── */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ── HIGHLIGHT ── */
+  mark { background: rgba(244,197,66,0.2); color: var(--accent1); padding: 1px 4px; border-radius: 3px; }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: rgba(92,169,224,0.1);
+    color: var(--accent3);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .section-sep { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+  .star-important::after { content: ' ⭐⭐⭐'; font-size: 12px; }
+  .star-medium::after { content: ' ⭐⭐'; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">JMI BBA Semester II · 24-BBA-T-204</div>
+  <h1>Business Ethics &<br><span>Corporate Governance</span></h1>
+  <p>Complete 2-Day Exam Preparation Guide · All 3 Units · Max Marks: 75</p>
+  <div class="hero-meta">
+    <span>📚 <b>3 Units</b> Covered</span>
+    <span>⏱️ <b>2 Hours</b> Exam</span>
+    <span>📝 <b>45+30</b> Marks</span>
+    <span>🎯 Exam-Focused</span>
+  </div>
+</div>
+
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('unit1')">📘 Unit 1</button>
+    <button class="tab-btn" onclick="showTab('unit2')">📗 Unit 2</button>
+    <button class="tab-btn" onclick="showTab('unit3')">📙 Unit 3</button>
+    <button class="tab-btn" onclick="showTab('questions')">❓ Imp Questions</button>
+    <button class="tab-btn" onclick="showTab('models')">✍️ Model Answers</button>
+    <button class="tab-btn" onclick="showTab('mnemonics')">🧠 Mnemonics</button>
+    <button class="tab-btn" onclick="showTab('revision')">⚡ Last-Minute</button>
+    <button class="tab-btn" onclick="showTab('plan')">📅 2-Day Plan</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ UNIT 1 ════════════════════════════════ -->
+<div class="tab-panel active" id="unit1">
+
+  <div class="unit-header">
+    <div class="unit-num">1</div>
+    <div class="unit-info">
+      <h3>Introduction to Ethics, Self-Exploration & Harmony</h3>
+      <p>Value Education · Ethical Principles · Self-Exploration · Harmony at all levels · Professional Ethics</p>
+    </div>
+  </div>
+
+  <h2>1.1 Value Education — Need, Guidelines, Content & Process</h2>
+
+  <div class="def-box">
+    <div class="def-box-label">What does this actually mean?</div>
+    <strong>Value Education</strong> = teaching people what is right vs wrong so they live and work ethically. It's like a "moral compass" lesson built into your education.
+  </div>
+
+  <h3>Why Do We Need Value Education? <span class="importance">⭐⭐⭐</span></h3>
+  <ul>
+    <li>Modern world is driven by greed, competition, and profit — values get ignored</li>
+    <li>Without values → corporate scams, corruption, environmental destruction</li>
+    <li>Value education creates professionals who are both <em>competent</em> AND <em>ethical</em></li>
+    <li>Indian Example: <strong>Satyam Scam (2009)</strong> — Ramalinga Raju committed ₹14,000 crore fraud → shows what happens when values are absent in business</li>
+  </ul>
+
+  <h3>Basic Guidelines for Value Education</h3>
+  <ul>
+    <li>Must be universal (applicable to all humans)</li>
+    <li>Must be verifiable (we can check if it works in real life)</li>
+    <li>Should promote right understanding (samajh), relationship (sambandh), and physical prosperity (samriddhi)</li>
+    <li>Should be part of daily life — not just classroom theory</li>
+  </ul>
+
+  <h3>Content of Value Education</h3>
+  <div class="card card-yellow">
+    <strong>Right Understanding → Right Feeling → Right Action</strong><br><br>
+    Three areas: (1) Understanding the self, (2) Understanding relationships, (3) Understanding nature/existence
+  </div>
+
+  <h3>Process of Value Education</h3>
+  <ul>
+    <li><strong>Step 1:</strong> Self-exploration — look within yourself</li>
+    <li><strong>Step 2:</strong> Natural acceptance — accept what feels naturally right</li>
+    <li><strong>Step 3:</strong> Experiential validation — test in real life</li>
+    <li><strong>Step 4:</strong> Live accordingly</li>
+  </ul>
+
+  <div class="tip-box">In 10-mark answers, always mention the 3-level framework: Self → Relationships → Nature. It shows depth.</div>
+
+  <hr class="section-sep">
+
+  <h2>1.2 Ethical Deficit and Erosion <span class="importance">⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">Definition</div>
+    <strong>Ethical Deficit</strong> = the gap between what ethical behavior should be and what actually happens in organizations/society.<br>
+    <strong>Ethical Erosion</strong> = the gradual decline of ethical standards over time.
+  </div>
+
+  <h3>Causes of Ethical Deficit</h3>
+  <ul>
+    <li>Pressure to achieve results at any cost</li>
+    <li>Weak organizational culture</li>
+    <li>Poor leadership — "boss does it, so we do it too"</li>
+    <li>Lack of accountability and transparency</li>
+    <li>Greed and short-term thinking</li>
+  </ul>
+
+  <h3>Signs of Ethical Erosion in Business</h3>
+  <ul>
+    <li>Bribery and corruption normalized</li>
+    <li>Financial fraud (false accounting)</li>
+    <li>Environmental damage ignored</li>
+    <li>Employee exploitation</li>
+    <li>Indian Example: <strong>Nirav Modi PNB Scam</strong> — ₹13,500 crore fraud showing complete ethical erosion</li>
+  </ul>
+
+  <div class="answer-section">
+    <div class="answer-label label-2m">2-MARK ANSWER</div>
+    <div class="card">
+      Ethical deficit refers to the gap between expected and actual ethical behavior in organizations. Ethical erosion is the gradual decline of moral standards due to factors like greed, poor leadership, and weak culture. The Satyam scam is a classic example of ethical erosion in Indian business.
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>1.3 Ethical Principles in Business <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">What this means</div>
+    These are the fundamental rules that guide moral behavior in a business context.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Principle</th><th>Meaning</th><th>Business Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Honesty</strong></td><td>Be truthful in all dealings</td><td>Accurate financial reporting</td></tr>
+        <tr><td><strong>Integrity</strong></td><td>Do right even when no one is watching</td><td>Not taking bribes</td></tr>
+        <tr><td><strong>Fairness</strong></td><td>Treat everyone equally</td><td>Equal pay for equal work</td></tr>
+        <tr><td><strong>Respect</strong></td><td>Value all stakeholders</td><td>Employee dignity policies</td></tr>
+        <tr><td><strong>Transparency</strong></td><td>Open about decisions</td><td>Publishing CSR reports</td></tr>
+        <tr><td><strong>Accountability</strong></td><td>Take responsibility for actions</td><td>CEO resigning after scandal</td></tr>
+        <tr><td><strong>Compassion</strong></td><td>Care about impact on others</td><td>Not laying off during crises</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mnemonic-box">Remember ethical principles with: <strong>HIFRTAC</strong> — Honesty, Integrity, Fairness, Respect, Transparency, Accountability, Compassion</div>
+
+  <hr class="section-sep">
+
+  <h2>1.4 Personal Ethics, Morality, Law and Religion <span class="importance">⭐⭐⭐</span></h2>
+
+  <h3>What is the Difference?</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Concept</th><th>Definition</th><th>Source</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Personal Ethics</strong></td><td>Individual's own values about right/wrong</td><td>Personal beliefs, upbringing</td><td>Refusing to lie even for profit</td></tr>
+        <tr><td><strong>Morality</strong></td><td>Society's shared sense of right and wrong</td><td>Culture, community norms</td><td>Don't steal, don't cheat</td></tr>
+        <tr><td><strong>Law</strong></td><td>Formal rules enforced by government</td><td>State/Government</td><td>Companies Act, IPC</td></tr>
+        <tr><td><strong>Religion</strong></td><td>Moral framework from religious teachings</td><td>God / scripture</td><td>Islam forbids interest (riba), Hinduism: dharma</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-blue">
+    <strong>Key Insight:</strong> These four overlap but are NOT the same. Something can be legal but unethical (e.g., selling cigarettes to adults), or moral but illegal (e.g., hiding a fugitive running from unjust law).
+  </div>
+
+  <div class="tip-box">A very common exam question: "Distinguish between morality, law and ethics." Always use a comparison table or give clear examples.</div>
+
+  <div class="answer-section">
+    <div class="answer-label label-5m">5-MARK ANSWER</div>
+    <div class="card">
+      <strong>Personal Ethics, Morality, Law and Religion</strong><br><br>
+      <strong>1. Personal Ethics</strong> refers to an individual's own moral code formed from personal values, upbringing, and life experiences. Example: A manager refusing to falsify accounts despite pressure.<br><br>
+      <strong>2. Morality</strong> refers to society's shared sense of what is right or wrong. It is broader than personal ethics and is shaped by culture and community norms. Example: The social consensus that corruption is wrong.<br><br>
+      <strong>3. Law</strong> is a set of rules enforced by the state with legal penalties. While law often reflects morality, the two don't always align. For example, paying minimum wage may be legal but still exploitative.<br><br>
+      <strong>4. Religion</strong> provides a divine or spiritual foundation for ethics. For example, Islamic ethics (Quran/Sunnah) prohibit interest-based transactions; Hindu ethics emphasize dharma (duty).<br><br>
+      These four systems influence each other but are distinct in source and enforcement.
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>1.5 Ethical Dilemma and Conflict <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">Definition</div>
+    An <strong>Ethical Dilemma</strong> is a situation where you must choose between two options that both have moral implications — neither is clearly right or wrong.
+  </div>
+
+  <h3>Types of Ethical Conflicts</h3>
+  <ul>
+    <li><strong>Truth vs Loyalty</strong> — Should you be honest with your boss even if it harms a colleague?</li>
+    <li><strong>Individual vs Community</strong> — Should a company maximize profit for shareholders or benefit the community?</li>
+    <li><strong>Short-term vs Long-term</strong> — Cut costs now (harming workers) vs sustain business long-term</li>
+    <li><strong>Justice vs Mercy</strong> — Fire a long-term employee for one mistake?</li>
+  </ul>
+
+  <div class="card card-red">
+    <strong>Mini Case Study:</strong> A pharmaceutical company discovers their drug has mild side effects. Do they: (A) immediately recall the drug, harming profitability and leaving patients without treatment, OR (B) continue selling with a warning label? This is an ethical dilemma.
+  </div>
+
+  <h3>How to Resolve Ethical Dilemmas</h3>
+  <ul>
+    <li>Identify stakeholders affected</li>
+    <li>List all options</li>
+    <li>Apply ethical theories (Utilitarianism, Duty ethics, etc.)</li>
+    <li>Choose the option causing least harm and most good</li>
+    <li>Take responsibility for the decision</li>
+  </ul>
+
+  <hr class="section-sep">
+
+  <h2>1.6 Self-Exploration: Content and Process <span class="importance">⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">What this actually means</div>
+    Self-exploration = looking honestly inside yourself to understand what you truly want, what makes you happy, and what kind of person you are.
+  </div>
+
+  <h3>Content of Self-Exploration</h3>
+  <ul>
+    <li><strong>What am I?</strong> — Am I just the body, or also consciousness?</li>
+    <li><strong>What do I really want?</strong> — Happiness (sukh) and prosperity (samriddhi)</li>
+    <li><strong>How do I relate to others?</strong> — Family, society, nature</li>
+  </ul>
+
+  <h3>Process of Self-Exploration</h3>
+  <ul>
+    <li><strong>Step 1:</strong> Self-reflection — think about your actions, values, desires</li>
+    <li><strong>Step 2:</strong> Natural Acceptance — check if your values feel naturally right to you (not forced by society)</li>
+    <li><strong>Step 3:</strong> Experiential Validation — test your values in real situations</li>
+    <li><strong>Step 4:</strong> Transformation — change yourself based on what you discover</li>
+  </ul>
+
+  <h3>Natural Acceptance vs Conditioned Acceptance</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Natural Acceptance</th><th>Conditioned Acceptance</th></tr></thead>
+      <tbody>
+        <tr><td>Comes from within — feels right naturally</td><td>Comes from outside — society, family, media</td></tr>
+        <tr><td>Universal — same for all humans</td><td>Varies by culture/upbringing</td></tr>
+        <tr><td>Example: All humans naturally want happiness</td><td>Example: Some cultures say "money = success"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>1.7 Happiness and Prosperity <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">Simple Definition</div>
+    <strong>Happiness (Sukh)</strong> = a state of inner contentment — a feeling that everything is right.<br>
+    <strong>Prosperity (Samriddhi)</strong> = having more than enough physical needs — feeling of abundance.
+  </div>
+
+  <h3>Common Misconceptions vs Reality</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Misconception</th><th>Reality</th></tr></thead>
+      <tbody>
+        <tr><td>Happiness = more money/things</td><td>Happiness comes from right relationships and self-understanding</td></tr>
+        <tr><td>Prosperity = being rich</td><td>Prosperity = having physical needs met + feeling of "enough"</td></tr>
+        <tr><td>More wealth = more happiness</td><td>Many wealthy people are unhappy; many simple people are joyful</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip-box">Professors love questions about "true happiness vs material happiness." Always contrast the two with examples.</div>
+
+  <hr class="section-sep">
+
+  <h2>1.8 Harmony at Various Levels <span class="importance">⭐⭐⭐</span></h2>
+
+  <h3>What is Harmony?</h3>
+  <p>Harmony means <strong>everything working together in a balanced, mutually beneficial way</strong> — no conflict, no exploitation.</p>
+
+  <h3>Four Levels of Harmony</h3>
+
+  <div class="card card-yellow">
+    <strong>Level 1: Harmony in Self (Within Myself)</strong><br>
+    When my thoughts, feelings and actions are aligned. When I don't have inner conflict.<br>
+    Example: A person who says one thing and does another → no harmony in self.
+  </div>
+
+  <div class="card card-green">
+    <strong>Level 2: Harmony in Family and Society</strong><br>
+    When relationships are based on trust (vishwas), respect (samman), and care — not fear or greed.<br>
+    Values: love (sneha), care (mamta), guidance (vatsalya), reverence (shraddha)<br>
+    Example: Family where everyone supports each other's goals → harmony in family.
+  </div>
+
+  <div class="card card-blue">
+    <strong>Level 3: Harmony in Human-Human Relationship</strong><br>
+    Relationships based on mutual respect and equality — not exploitation or superiority.<br>
+    Foundation: Seeing all humans as equal (tu bhi insan, main bhi insan)<br>
+    Example: Fair business dealings without exploitation of workers.
+  </div>
+
+  <div class="card card-red">
+    <strong>Level 4: Harmony in Nature and Existence</strong><br>
+    Living in balance with nature — not exploiting it beyond what we need.<br>
+    Existence = all four orders in co-existence: material (padartha), plant (prana), animal (jeeva), human (gyaan)<br>
+    Example: Sustainable business practices, zero-waste policies.
+  </div>
+
+  <div class="mnemonic-box">Remember the 4 levels: <strong>SFHN</strong> — Self, Family, Human-Human, Nature</div>
+
+  <div class="answer-section">
+    <div class="answer-label label-10m">10-MARK ANSWER</div>
+    <div class="card">
+      <strong>Harmony at Various Levels — A Holistic Framework</strong><br><br>
+      Harmony refers to a state of mutual coexistence and cooperation at every level of human experience. The concept of harmony can be understood at four interconnected levels:<br><br>
+      <strong>1. Harmony in Self:</strong> This is the foundational level. When a person's thoughts, feelings, and actions are aligned, they experience internal harmony. Inner conflict — between what we feel and what we do — leads to stress and unethical behavior. Value education helps achieve harmony within the self by developing right understanding.<br><br>
+      <strong>2. Harmony in Family and Society:</strong> Family is the first social unit. Harmony in family means relationships based on love, care, trust, and respect — not based on fear or material interest. Values like sneha (affection), mamta (care), vatsalya (guidance), and shraddha (reverence) form the basis of healthy family relationships. In society, this extends to justice, equality, and cooperation.<br><br>
+      <strong>3. Harmony in Human-Human Relationship:</strong> At this level, the goal is to see all humans as fundamentally equal — regardless of caste, religion, nation, or economic status. Human relationships should be based on mutual respect and complementarity rather than dominance or exploitation. Business ethics demands that companies treat employees, customers, and communities with dignity.<br><br>
+      <strong>4. Harmony in Nature and Existence:</strong> The final level recognizes that humans are part of a larger ecosystem. Nature operates in a cycle of self-regulation — if humans over-exploit natural resources, harmony is destroyed. Sustainable business practices, CSR, and environmental ethics are applications of this level of harmony.<br><br>
+      <strong>Conclusion:</strong> These four levels are interconnected. A person at peace with themselves can build peaceful families; peaceful families create harmonious societies; harmonious societies can coexist with nature. Corporate ethics must aim for harmony at all four levels to ensure sustainable and ethical business.
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>1.9 Professional Ethics <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">Definition</div>
+    <strong>Professional Ethics</strong> = the moral principles and standards that guide behavior in a specific profession.
+  </div>
+
+  <h3>Characteristics of Professional Ethics</h3>
+  <ul>
+    <li>Honesty and transparency in professional dealings</li>
+    <li>Competence — continually updating skills</li>
+    <li>Confidentiality — protecting client/company information</li>
+    <li>Avoiding conflicts of interest</li>
+    <li>Accountability — owning up to mistakes</li>
+  </ul>
+
+  <h3>Professional Ethics in Different Fields</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Profession</th><th>Key Ethical Obligations</th></tr></thead>
+      <tbody>
+        <tr><td>Doctor</td><td>Do no harm, patient confidentiality</td></tr>
+        <tr><td>Lawyer</td><td>Client loyalty, court honesty</td></tr>
+        <tr><td>Accountant</td><td>Accurate reporting, no fraud</td></tr>
+        <tr><td>Manager</td><td>Fair treatment of employees, transparency</td></tr>
+        <tr><td>Journalist</td><td>Truth, no sensationalism</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>1.10 Politics, Business Ethics and Moral Reasoning <span class="importance">⭐⭐</span></h2>
+
+  <h3>Relationship between Politics and Business Ethics</h3>
+  <ul>
+    <li>Politics creates the legal framework within which businesses operate</li>
+    <li>Business funds politics (campaign donations, lobbying) → creates conflict of interest</li>
+    <li>Government policies (taxation, regulation) shape business behavior</li>
+    <li>Corruption happens when business and politics become too close</li>
+  </ul>
+
+  <h3>Moral Reasoning in Business</h3>
+  <p>Moral reasoning = the thought process used to determine what is right or wrong in a specific situation.</p>
+  <ul>
+    <li><strong>Consequentialist reasoning:</strong> Judge actions by their consequences</li>
+    <li><strong>Deontological reasoning:</strong> Judge actions by rules/duties</li>
+    <li><strong>Virtue reasoning:</strong> Ask "what would a person of good character do?"</li>
+  </ul>
+
+  <div class="card card-red">
+    <strong>Indian Example:</strong> When Reliance Industries negotiated special government policies for its telecom launch (Jio, 2016), it raised questions about the ethics of business-politics nexus. Did the company receive unfair advantages?
+  </div>
+
+  <div class="keywords">
+    <div class="kw">Value Education</div>
+    <div class="kw">Ethical Deficit</div>
+    <div class="kw">Ethical Erosion</div>
+    <div class="kw">Natural Acceptance</div>
+    <div class="kw">Experiential Validation</div>
+    <div class="kw">Harmony</div>
+    <div class="kw">Happiness (Sukh)</div>
+    <div class="kw">Prosperity (Samriddhi)</div>
+    <div class="kw">Professional Ethics</div>
+    <div class="kw">Moral Reasoning</div>
+    <div class="kw">Ethical Dilemma</div>
+    <div class="kw">Coexistence</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════ UNIT 2 ════════════════════════════════ -->
+<div class="tab-panel" id="unit2">
+
+  <div class="unit-header">
+    <div class="unit-num">2</div>
+    <div class="unit-info">
+      <h3>Values, Ethics, Theories & Moral Development</h3>
+      <p>Traditional & Contemporary Theories · Normative Business Ethics · Kohlberg & Gilligan</p>
+    </div>
+  </div>
+
+  <h2>2.1 Values, Ethics and Morals — Concepts and Types <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Concept</th><th>Simple Meaning</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Values</strong></td><td>Deep beliefs about what matters most to you</td><td>Honesty, family, freedom</td></tr>
+        <tr><td><strong>Ethics</strong></td><td>Rules about right/wrong in social/professional context</td><td>Business ethics, medical ethics</td></tr>
+        <tr><td><strong>Morals</strong></td><td>Personal sense of good/bad shaped by culture & experience</td><td>"I believe cheating is always wrong"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Types of Values</h3>
+
+  <div class="two-col">
+    <div class="card card-yellow">
+      <strong>Personal Values</strong><br>
+      Individual beliefs about what is important: honesty, ambition, loyalty, creativity.<br>
+      Formed by family, experiences, education.
+    </div>
+    <div class="card card-green">
+      <strong>Social Values</strong><br>
+      Shared norms of a community/society: respect for elders, equality, justice.<br>
+      Maintained through social pressure and culture.
+    </div>
+    <div class="card card-blue">
+      <strong>Moral Values</strong><br>
+      Standards of right and wrong: don't steal, don't harm, keep promises.<br>
+      Universal — apply regardless of culture.
+    </div>
+    <div class="card card-red">
+      <strong>Spiritual Values</strong><br>
+      Values connected to a higher purpose: compassion, humility, service, inner peace.<br>
+      Go beyond material success.
+    </div>
+  </div>
+
+  <h3>Values Conflict and Reconciliation</h3>
+  <div class="def-box">
+    <div class="def-box-label">Definition</div>
+    <strong>Values Conflict</strong> = when two deeply held values pull you in opposite directions.
+    Example: You value loyalty (to a friend who is lying) but also honesty (telling the truth).
+  </div>
+
+  <h4>How to Reconcile Values Conflicts</h4>
+  <ul>
+    <li><strong>Prioritization:</strong> Decide which value is more fundamental</li>
+    <li><strong>Dialogue:</strong> Talk it through with the involved parties</li>
+    <li><strong>Compromise:</strong> Find a middle path that honors both values</li>
+    <li><strong>Higher principle:</strong> Refer to an overarching ethical theory for guidance</li>
+  </ul>
+
+  <h3>Values and Behavior</h3>
+  <p>Values → Attitudes → Behavior. When your values are clear and strong, your behavior becomes consistent. Employees with strong values behave ethically even without supervision.</p>
+
+  <div class="tip-box">Professors often ask: "How do values influence behavior?" Always use the chain: Values → Attitudes → Decision → Behavior.</div>
+
+  <hr class="section-sep">
+
+  <h2>2.2 Traditional Ethical Theories <span class="importance">⭐⭐⭐</span></h2>
+
+  <p>Think of these as <em>different lenses</em> to view ethical problems — each gives a different answer.</p>
+
+  <h3>Theory 1: Utilitarianism (Jeremy Bentham & John Stuart Mill)</h3>
+
+  <div class="def-box">
+    <div class="def-box-label">Core Idea</div>
+    "Do whatever produces the <strong>greatest good for the greatest number of people.</strong>"<br>
+    Judged by CONSEQUENCES (outcomes), not intentions.
+  </div>
+
+  <div class="card card-yellow">
+    <strong>Story to Remember:</strong> A pharmaceutical company can save 1 million people but must test on 100 animals. Utilitarianism says: Do it — 1 million lives > 100 animals. The outcome justifies the action.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Aspect</th><th>Utilitarianism</th></tr></thead>
+      <tbody>
+        <tr><td>Also called</td><td>Consequentialism</td></tr>
+        <tr><td>Founders</td><td>Jeremy Bentham, J.S. Mill</td></tr>
+        <tr><td>Key question</td><td>"What outcome produces most happiness?"</td></tr>
+        <tr><td>Business use</td><td>Cost-benefit analysis, policy decisions</td></tr>
+        <tr><td>Criticism</td><td>Ignores individual rights; minority can be sacrificed</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Theory 2: Ethical Egoism</h3>
+
+  <div class="def-box">
+    <div class="def-box-label">Core Idea</div>
+    "You should always act in your own <strong>self-interest</strong>." Each person pursuing self-interest leads to best outcomes for all (like Adam Smith's "invisible hand").
+  </div>
+
+  <ul>
+    <li>Often confused with selfishness but it's a systematic theory</li>
+    <li>Business application: Free market capitalism — companies compete in self-interest → society benefits</li>
+    <li>Criticism: Can justify exploitation, dishonesty, and harm to others</li>
+  </ul>
+
+  <h3>Theory 3: Ethics of Duties (Deontological Ethics — Immanuel Kant)</h3>
+
+  <div class="def-box">
+    <div class="def-box-label">Core Idea</div>
+    Some actions are inherently <strong>right or wrong, regardless of consequences.</strong><br>
+    Key concept: <strong>Categorical Imperative</strong> — "Act only according to rules you would want everyone to follow universally."
+  </div>
+
+  <div class="card card-blue">
+    <strong>Story to Remember:</strong> Kant says lying is ALWAYS wrong — even if lying would save someone's life. Why? Because if everyone lied, trust would collapse and society would break down. The rule must be universalizable.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Aspect</th><th>Duty Ethics (Kantian)</th></tr></thead>
+      <tbody>
+        <tr><td>Founder</td><td>Immanuel Kant</td></tr>
+        <tr><td>Key concept</td><td>Categorical Imperative, Duty (Pflicht)</td></tr>
+        <tr><td>Key question</td><td>"Is this action universally right?"</td></tr>
+        <tr><td>Business use</td><td>Non-negotiable ethical rules (no bribery, ever)</td></tr>
+        <tr><td>Criticism</td><td>Too rigid; ignores consequences</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Theory 4: Ethics of Rights and Justice (John Rawls)</h3>
+
+  <div class="def-box">
+    <div class="def-box-label">Core Idea</div>
+    Every person has fundamental <strong>rights</strong> that cannot be violated. Justice = fairness.<br>
+    Rawls' "Veil of Ignorance": Design society's rules as if you don't know your own position in it.
+  </div>
+
+  <ul>
+    <li>Natural rights: life, liberty, property (John Locke)</li>
+    <li>Rawls: inequalities are only acceptable if they benefit the least advantaged</li>
+    <li>Business application: Labor rights, anti-discrimination policies, minimum wage</li>
+    <li>Example: Workers have the RIGHT to safe working conditions — this isn't negotiable</li>
+  </ul>
+
+  <div class="mnemonic-box">Remember 4 traditional theories: <strong>UDER</strong> — Utilitarianism, Duty, Egoism, Rights/Justice</div>
+
+  <hr class="section-sep">
+
+  <h2>2.3 Contemporary Ethical Theories <span class="importance">⭐⭐⭐</span></h2>
+
+  <h3>Theory 5: Virtue Ethics (Aristotle)</h3>
+
+  <div class="def-box">
+    <div class="def-box-label">Core Idea</div>
+    Focus on developing a <strong>good character</strong> rather than following rules or calculating consequences.<br>
+    "What would a virtuous person do in this situation?"
+  </div>
+
+  <ul>
+    <li>Key virtues: courage, honesty, compassion, wisdom, justice</li>
+    <li>You develop virtue through <em>habit and practice</em> — not just thinking about it</li>
+    <li>Business: Build ethical leaders who have internalized good values</li>
+    <li>Example: Tata Group known for integrity → virtuous organizational culture</li>
+  </ul>
+
+  <div class="card card-green">
+    <strong>Story:</strong> Imagine two managers. Manager A follows the "no-bribery" rule because they fear getting caught. Manager B refuses to bribe because they genuinely value honesty. Virtue Ethics says Manager B is truly ethical — the motivation matters.
+  </div>
+
+  <h3>Theory 6: Feminist Ethics (Carol Gilligan)</h3>
+
+  <div class="def-box">
+    <div class="def-box-label">Core Idea</div>
+    Traditional ethics (Kant, Rawls) is too focused on abstract rules and rights. Ethics should also include <strong>care, relationships, and context.</strong>
+  </div>
+
+  <ul>
+    <li>Challenges the male-dominated perspective in traditional ethics</li>
+    <li>Emphasizes: care, connection, responsibility for others</li>
+    <li>Business: Recognizes emotional labor, collaborative leadership, work-life balance</li>
+    <li>Connected to Carol Gilligan's Theory (covered in Section 2.5)</li>
+  </ul>
+
+  <div class="answer-section">
+    <div class="answer-label label-10m">10-MARK ANSWER — Ethical Theories</div>
+    <div class="card">
+      <strong>Traditional and Contemporary Ethical Theories</strong><br><br>
+      Ethical theories provide systematic frameworks for deciding what is right or wrong. These are divided into traditional and contemporary theories.<br><br>
+      <strong>Traditional Theories:</strong><br>
+      1. <strong>Utilitarianism</strong> (Bentham & Mill): An action is right if it produces the greatest happiness for the greatest number. It is outcome-focused (consequentialist). Business decisions like cost-benefit analyses often use utilitarian reasoning. Criticism: can justify harming a minority for the majority's benefit.<br><br>
+      2. <strong>Ethical Egoism</strong>: Each person should act in their own self-interest. While criticized as selfish, it underpins free-market capitalism — companies competing for profit benefit consumers through better products and prices.<br><br>
+      3. <strong>Ethics of Duties</strong> (Kant): Actions must be based on duty and universal rules (Categorical Imperative). An action is right if it can be universalized — "Act only as you would want everyone to act." It is absolute and not dependent on outcomes.<br><br>
+      4. <strong>Rights and Justice Ethics</strong> (Rawls): Every person has fundamental rights. Rawls' "Veil of Ignorance" suggests designing ethical rules without knowing your own position — leading to truly fair outcomes. Applied to labor rights, anti-discrimination laws.<br><br>
+      <strong>Contemporary Theories:</strong><br>
+      5. <strong>Virtue Ethics</strong> (Aristotle): Ethics should focus on character rather than rules. The virtuous person — courageous, honest, compassionate — will naturally make ethical decisions. Business ethics should develop virtuous leaders.<br><br>
+      6. <strong>Feminist Ethics</strong> (Gilligan): Challenges the abstract rule-based approach of traditional ethics. Argues for ethics based on care, context, and relationships. Particularly relevant in HR ethics, work-life balance, and compassionate management.<br><br>
+      <strong>Conclusion:</strong> No single theory is complete. Good ethical decision-making in business often requires combining insights from multiple theories.
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>2.4 Normative Theories of Business Ethics <span class="importance">⭐⭐⭐</span></h2>
+
+  <p>These three theories specifically answer: <em>"Who should a business primarily serve?"</em></p>
+
+  <div class="card card-yellow">
+    <h3>Theory A: Stockholder Theory (Milton Friedman)</h3>
+    <strong>Core Idea:</strong> "The social responsibility of business is to increase its profits."<br>
+    A company's only obligation is to its <strong>shareholders (stockholders)</strong>.<br>
+    Managers are agents of owners → must maximize shareholder value.<br><br>
+    <strong>Criticism:</strong> Ignores workers, customers, communities, environment.<br>
+    <strong>Example:</strong> A company laying off 10,000 workers to boost quarterly profits.
+  </div>
+
+  <div class="card card-green">
+    <h3>Theory B: Stakeholder Theory (R. Edward Freeman)</h3>
+    <strong>Core Idea:</strong> Business has obligations to ALL stakeholders — not just shareholders.<br>
+    <strong>Stakeholders:</strong> shareholders, employees, customers, suppliers, community, government, environment.<br><br>
+    <strong>Strength:</strong> More sustainable — businesses survive long-term by serving all stakeholders.<br>
+    <strong>Example:</strong> Infosys's commitment to employee welfare and community development = stakeholder approach.<br>
+    <strong>Criticism:</strong> Hard to balance everyone's interests simultaneously.
+  </div>
+
+  <div class="card card-blue">
+    <h3>Theory C: Social Contract Theory (Locke, Rousseau, Rawls)</h3>
+    <strong>Core Idea:</strong> Businesses exist by "permission" of society. They have an implicit <strong>social contract</strong> — they must contribute to society in return for the license to operate.<br><br>
+    <strong>Elements of the social contract:</strong>
+    <ul>
+      <li>Pay taxes fairly</li>
+      <li>Provide employment</li>
+      <li>Don't harm environment</li>
+      <li>Respect community</li>
+    </ul>
+    <strong>Example:</strong> If a factory pollutes the river of the village it operates in → it has violated the social contract.
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Theory</th><th>Who Does Business Serve?</th><th>Key Thinker</th><th>Focus</th></tr></thead>
+      <tbody>
+        <tr><td>Stockholder</td><td>Shareholders only</td><td>Milton Friedman</td><td>Profit maximization</td></tr>
+        <tr><td>Stakeholder</td><td>All stakeholders</td><td>R.E. Freeman</td><td>Balanced responsibility</td></tr>
+        <tr><td>Social Contract</td><td>Society broadly</td><td>Rawls, Locke</td><td>Social license to operate</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tip-box">The Stockholder vs Stakeholder debate is one of the MOST COMMONLY asked topics. Know both sides clearly. Examiners love comparison questions.</div>
+
+  <hr class="section-sep">
+
+  <h2>2.5 Lawrence Kohlberg's Theory of Moral Development <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">What this means</div>
+    Kohlberg showed that moral reasoning develops in stages — we don't suddenly become ethical adults. We grow through predictable levels.
+  </div>
+
+  <h3>The 3 Levels and 6 Stages</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Level</th><th>Stage</th><th>Moral Reasoning</th><th>Simple Explanation</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="2"><strong>Level 1:<br>Pre-conventional</strong><br>(Child-level)</td><td>Stage 1: Obedience & Punishment</td><td>"I'll be good to avoid punishment"</td><td>Follow rules to not get punished</td></tr>
+        <tr><td>Stage 2: Self-interest</td><td>"I'll help you if you help me"</td><td>Scratch my back, I'll scratch yours</td></tr>
+        <tr><td rowspan="2"><strong>Level 2:<br>Conventional</strong><br>(Teenager/adult)</td><td>Stage 3: Good Boy/Girl</td><td>"I want to be seen as a good person"</td><td>Follow social norms to get approval</td></tr>
+        <tr><td>Stage 4: Law & Order</td><td>"Follow laws because laws must be followed"</td><td>Rules exist for a reason — obey them</td></tr>
+        <tr><td rowspan="2"><strong>Level 3:<br>Post-conventional</strong><br>(Mature adult)</td><td>Stage 5: Social Contract</td><td>"Laws should serve justice — I can question them"</td><td>Laws that are unjust can be changed</td></tr>
+        <tr><td>Stage 6: Universal Principles</td><td>"I follow universal ethical principles even against law"</td><td>Gandhi refusing unjust British laws</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-yellow">
+    <strong>Business Application:</strong><br>
+    Stage 1–2 employee: Follows company rules only to avoid firing.<br>
+    Stage 3–4 employee: Follows company norms to be a "good employee."<br>
+    Stage 5–6 employee: Blows the whistle on corruption because it's the right thing, even if it costs their job.
+  </div>
+
+  <div class="mnemonic-box">Kohlberg's stages: <strong>PS-GG-SC</strong> — Punishment, Self-interest, Good-boy, law & Order, Social contract, Universal principles</div>
+
+  <hr class="section-sep">
+
+  <h2>2.6 Carol Gilligan's Theory of Moral Development <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">Why Gilligan Matters</div>
+    Gilligan was Kohlberg's student. She criticized his theory for being based only on male subjects. She said women develop moral reasoning differently — through <strong>care and relationships</strong>, not abstract rules.
+  </div>
+
+  <h3>Gilligan's 3 Stages</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Stage</th><th>Focus</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Stage 1: Pre-conventional</strong></td><td>Individual Survival</td><td>"I must take care of myself." Purely self-interested.</td></tr>
+        <tr><td><strong>Stage 2: Conventional</strong></td><td>Self-sacrifice / Goodness</td><td>"I must take care of others, even at the cost of myself." Caring for others = goodness.</td></tr>
+        <tr><td><strong>Stage 3: Post-conventional</strong></td><td>Care as Universal Principle</td><td>"Care is a moral responsibility for ALL — including myself." Balance of self-care and care for others.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Gilligan vs Kohlberg — Key Differences</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Aspect</th><th>Kohlberg</th><th>Gilligan</th></tr></thead>
+      <tbody>
+        <tr><td>Focus</td><td>Justice, rules, rights</td><td>Care, relationships, context</td></tr>
+        <tr><td>Based on</td><td>Male subjects only</td><td>Both male and female</td></tr>
+        <tr><td>Moral maturity</td><td>Following universal principles</td><td>Balancing care for self and others</td></tr>
+        <tr><td>Criticism</td><td>Ignores gender differences; biased</td><td>May reinforce female stereotypes</td></tr>
+        <tr><td>Business relevance</td><td>Rule-based ethical codes</td><td>Empathy, care in management</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>2.7 Ethics of Care and Relationship</h2>
+  <p>An extension of Gilligan's work — argues that ethical decision-making should center on <strong>maintaining caring relationships</strong> and responding to the needs of those you are responsible for.</p>
+  <ul>
+    <li>Key concept: Moral obligation flows from <em>relationships</em>, not abstract principles</li>
+    <li>Business: Managers who care for employees, companies that treat communities as family</li>
+    <li>Example: Tata Steel's Jamshedpur — built hospitals, schools, housing for workers → ethics of care in practice</li>
+  </ul>
+
+  <div class="keywords">
+    <div class="kw">Values</div>
+    <div class="kw">Ethics</div>
+    <div class="kw">Morals</div>
+    <div class="kw">Utilitarianism</div>
+    <div class="kw">Categorical Imperative</div>
+    <div class="kw">Virtue Ethics</div>
+    <div class="kw">Stakeholder Theory</div>
+    <div class="kw">Stockholder Theory</div>
+    <div class="kw">Social Contract</div>
+    <div class="kw">Kohlberg</div>
+    <div class="kw">Gilligan</div>
+    <div class="kw">Ethics of Care</div>
+    <div class="kw">Feminist Ethics</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════ UNIT 3 ════════════════════════════════ -->
+<div class="tab-panel" id="unit3">
+
+  <div class="unit-header">
+    <div class="unit-num">3</div>
+    <div class="unit-info">
+      <h3>Corporate Governance & CSR</h3>
+      <p>Meaning · Need · India · Committees · CSR · Corruption · CSR Fund Issues</p>
+    </div>
+  </div>
+
+  <h2>3.1 Corporate Governance — Meaning, Concept and Importance <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">Definition (Most Asked)</div>
+    <strong>Corporate Governance</strong> = the system of rules, practices, and processes by which a company is <strong>directed and controlled</strong>. It balances the interests of shareholders, management, customers, government, and the community.
+  </div>
+
+  <div class="card card-yellow">
+    <strong>Think of it like this:</strong> Corporate governance is the "rule book + referee system" for how a company is run. Without it, directors can steal from shareholders, managers can hide losses, and companies can harm society.
+  </div>
+
+  <h3>Key Elements of Corporate Governance</h3>
+  <ul>
+    <li><strong>Board of Directors</strong> — ultimate governance body</li>
+    <li><strong>Transparency</strong> — honest disclosure of financial and operational information</li>
+    <li><strong>Accountability</strong> — management answerable to shareholders and public</li>
+    <li><strong>Fairness</strong> — equal treatment of all shareholders</li>
+    <li><strong>Responsibility</strong> — to stakeholders and society</li>
+  </ul>
+
+  <h3>Importance of Corporate Governance</h3>
+  <ul>
+    <li>Builds investor confidence — people invest in companies they trust</li>
+    <li>Prevents corporate fraud and scams</li>
+    <li>Enhances company reputation and brand value</li>
+    <li>Ensures long-term sustainability</li>
+    <li>Attracts better talent (ethical culture)</li>
+    <li>Required by law — SEBI regulations, Companies Act 2013</li>
+  </ul>
+
+  <div class="answer-section">
+    <div class="answer-label label-2m">2-MARK ANSWER</div>
+    <div class="card">
+      Corporate Governance refers to the system of rules, practices, and processes by which a company is directed and controlled. It ensures accountability, fairness, and transparency in a company's relationship with its stakeholders — shareholders, employees, government, and society. Good governance prevents fraud and builds long-term investor trust.
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>3.2 Need for Corporate Governance in Business <span class="importance">⭐⭐⭐</span></h2>
+
+  <h3>Why Do We Need Corporate Governance?</h3>
+  <p>The <strong>Agency Problem</strong> is the core reason: Shareholders (owners) hire managers (agents) to run the company. But managers may act in their own interest rather than shareholders' interest → governance solves this.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Reason</th><th>Explanation</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Prevent Fraud</td><td>Without oversight, management can manipulate accounts</td><td>Satyam Scam 2009</td></tr>
+        <tr><td>Protect Investors</td><td>Small shareholders need protection from large shareholders and management</td><td>Minority shareholder rights</td></tr>
+        <tr><td>Access to Capital</td><td>Well-governed companies attract investment more easily</td><td>FII investment in India</td></tr>
+        <tr><td>Global Competition</td><td>International investors require global governance standards</td><td>NYSE listing requirements</td></tr>
+        <tr><td>Social Responsibility</td><td>Companies must be accountable to society, not just shareholders</td><td>CSR mandate</td></tr>
+        <tr><td>Crisis Management</td><td>Good governance helps companies navigate crises ethically</td><td>J&J Tylenol recall (1982)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>3.3 Corporate Governance in India <span class="importance">⭐⭐⭐</span></h2>
+
+  <h3>Timeline of Corporate Governance in India</h3>
+
+  <div class="card card-blue">
+    <strong>Pre-1991:</strong> India had a closed, socialist-style economy. Government controlled businesses. Corporate governance wasn't a priority.
+  </div>
+  <div class="card card-yellow">
+    <strong>1991 — Liberalization:</strong> India opened its economy. Foreign companies came in. Suddenly, governance standards became critical to attract foreign investment.
+  </div>
+  <div class="card card-green">
+    <strong>1998 — CII Code:</strong> First voluntary corporate governance code by Confederation of Indian Industry.
+  </div>
+  <div class="card card-red">
+    <strong>1999–2003 — SEBI Committees:</strong> Kumar Mangalam Birla Committee (1999), Narayana Murthy Committee (2003) — made governance compulsory for listed companies.
+  </div>
+  <div class="card card-blue">
+    <strong>2009 — Satyam Scam:</strong> The ₹14,000 crore fraud exposed massive governance failures. Led to stricter reforms.
+  </div>
+  <div class="card card-yellow">
+    <strong>2013 — Companies Act 2013:</strong> Comprehensive corporate governance law with mandatory provisions for independent directors, CSR, audit committees, etc.
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>3.4 Indian Committees on Corporate Governance <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="tip-box">This is a VERY HIGH PROBABILITY exam topic. Memorize the committee names, years, and key recommendations.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Committee</th><th>Year</th><th>Set up by</th><th>Key Recommendations</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>CII Code</strong></td><td>1998</td><td>Industry voluntary</td>
+          <td>First voluntary governance code; independent directors, audit committees</td>
+        </tr>
+        <tr>
+          <td><strong>Kumar Mangalam Birla Committee</strong></td><td>1999</td><td>SEBI</td>
+          <td>Clause 49 of Listing Agreement — independent directors, audit committee, board composition</td>
+        </tr>
+        <tr>
+          <td><strong>Narayana Murthy Committee</strong></td><td>2003</td><td>SEBI</td>
+          <td>Strengthened Clause 49 — CEO/CFO certification, whistle-blower policy, risk management</td>
+        </tr>
+        <tr>
+          <td><strong>J.J. Irani Committee</strong></td><td>2004–05</td><td>Govt. of India</td>
+          <td>New Companies Act recommendations — minority shareholder rights, class action suits</td>
+        </tr>
+        <tr>
+          <td><strong>Uday Kotak Committee</strong></td><td>2017</td><td>SEBI</td>
+          <td>Enhanced board independence, separation of Chairman & MD, more women on boards</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card card-yellow">
+    <strong>CLAUSE 49 (Must Know!):</strong> SEBI's mandatory corporate governance code for listed companies in India. Requires:<br>
+    ✓ Minimum 50% independent directors<br>
+    ✓ Audit Committee mandatory<br>
+    ✓ CEO/CFO must certify financial statements<br>
+    ✓ Quarterly governance report to stock exchange
+  </div>
+
+  <div class="mnemonic-box">Remember Indian committees: <strong>CKN-JU</strong> — CII, Kumar Mangalam Birla, Narayana Murthy, JJ Irani, Uday Kotak</div>
+
+  <div class="answer-section">
+    <div class="answer-label label-10m">10-MARK ANSWER</div>
+    <div class="card">
+      <strong>Growth of Corporate Governance in India and Key Committees</strong><br><br>
+      Corporate governance in India has evolved significantly since economic liberalization in 1991. Before liberalization, India's closed economy meant little accountability to investors. As foreign capital began flowing in, the need for transparent and accountable corporate structures became urgent.<br><br>
+      <strong>Key Milestones:</strong><br><br>
+      <strong>1. CII Voluntary Code (1998):</strong> The Confederation of Indian Industry released India's first voluntary corporate governance code, recommending independent directors and audit committees for large companies.<br><br>
+      <strong>2. Kumar Mangalam Birla Committee (1999):</strong> Set up by SEBI, this was a landmark committee. It introduced <em>Clause 49</em> of the Listing Agreement — making corporate governance compulsory for all listed companies. Key recommendations included: minimum 50% independent directors, mandatory audit committee, and disclosure of related-party transactions.<br><br>
+      <strong>3. Narayana Murthy Committee (2003):</strong> Strengthened Clause 49 by adding CEO/CFO certification of financial statements, whistle-blower protection, and risk management frameworks.<br><br>
+      <strong>4. J.J. Irani Committee (2004–05):</strong> Recommended reforms that led to the new Companies Act 2013, including class action suits and stronger minority shareholder rights.<br><br>
+      <strong>5. Companies Act 2013:</strong> Comprehensive legislation making corporate governance statutory. It mandated CSR spending (2% of net profit), independent directors, women directors on boards, and strong audit provisions.<br><br>
+      <strong>6. Uday Kotak Committee (2017):</strong> Recommended separating the roles of Chairman and Managing Director, more women directors, and enhanced board independence.<br><br>
+      <strong>Impact of Satyam Scam (2009):</strong> The ₹14,000 crore accounting fraud by Satyam's Chairman Ramalinga Raju exposed massive governance failures and accelerated reforms in India.<br><br>
+      <strong>Conclusion:</strong> India's corporate governance has matured from voluntary codes to comprehensive statutory requirements, placing it closer to global standards.
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>3.5 Corporate Social Responsibility (CSR) <span class="importance">⭐⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">Definition</div>
+    <strong>CSR</strong> = A company's commitment to behave ethically and contribute to economic development while improving the quality of life of its workforce, their families, the local community, and society at large. — World Business Council for Sustainable Development
+  </div>
+
+  <h3>The Carroll's CSR Pyramid (Most Famous Model)</h3>
+
+  <div class="card card-yellow">
+    <strong>Level 4 (Top): Philanthropic Responsibility</strong><br>
+    "Be a good corporate citizen" — Donate, contribute to society<br><br>
+    <strong>Level 3: Ethical Responsibility</strong><br>
+    "Be ethical" — Do what is right, fair, avoid harm<br><br>
+    <strong>Level 2: Legal Responsibility</strong><br>
+    "Obey the law" — Follow government regulations<br><br>
+    <strong>Level 1 (Base): Economic Responsibility</strong><br>
+    "Be profitable" — Make money; the foundation of everything else
+  </div>
+
+  <div class="mnemonic-box">Carroll's Pyramid bottom to top: <strong>ELEP</strong> — Economic, Legal, Ethical, Philanthropic</div>
+
+  <h3>CSR Under Companies Act 2013 (India-Specific) <span class="importance">⭐⭐⭐</span></h3>
+
+  <div class="card card-red">
+    <strong>Section 135 of Companies Act 2013:</strong><br>
+    Companies must spend <strong>2% of average net profits</strong> of preceding 3 years on CSR if they meet ANY of these criteria:<br>
+    ✓ Net worth ≥ ₹500 crore, OR<br>
+    ✓ Turnover ≥ ₹1000 crore, OR<br>
+    ✓ Net profit ≥ ₹5 crore<br><br>
+    A <strong>CSR Committee</strong> (minimum 3 directors, including 1 independent) must be formed.
+  </div>
+
+  <h3>CSR Activities Specified in Schedule VII</h3>
+  <ul>
+    <li>Eradicating hunger and poverty</li>
+    <li>Promoting education</li>
+    <li>Promoting gender equality and women empowerment</li>
+    <li>Environmental sustainability</li>
+    <li>Protecting national heritage, art and culture</li>
+    <li>Rural development projects</li>
+    <li>Disaster management</li>
+  </ul>
+
+  <h3>Indian CSR Examples</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Company</th><th>CSR Initiative</th></tr></thead>
+      <tbody>
+        <tr><td>Tata Group</td><td>Tata Trusts — healthcare, education; Jamshedpur model city for workers</td></tr>
+        <tr><td>Infosys</td><td>Infosys Foundation — rural development, education in underprivileged areas</td></tr>
+        <tr><td>Wipro</td><td>Wipro Cares — environment, disaster relief</td></tr>
+        <tr><td>HUL</td><td>Project Shakti — empowering rural women as micro-entrepreneurs</td></tr>
+        <tr><td>ITC</td><td>e-Choupal — helping farmers get better prices through technology</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>3.6 Corruption and Unethical Practices <span class="importance">⭐⭐</span></h2>
+
+  <div class="def-box">
+    <div class="def-box-label">Definition</div>
+    <strong>Corruption</strong> = dishonest or fraudulent conduct by those in power, typically involving bribery.<br>
+    <strong>Unethical Practices</strong> = actions that violate moral principles, even if not strictly illegal.
+  </div>
+
+  <h3>Types of Corruption in Business</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Bribery</td><td>Paying/receiving money to influence decisions</td><td>Bribing inspector to pass faulty product</td></tr>
+        <tr><td>Embezzlement</td><td>Stealing company funds by those entrusted with it</td><td>CFO transferring company money to personal account</td></tr>
+        <tr><td>Fraud</td><td>Deceiving stakeholders for personal gain</td><td>Satyam's fake accounts</td></tr>
+        <tr><td>Conflict of Interest</td><td>Using position for personal benefit against company interest</td><td>Manager hiring own company as supplier at inflated rates</td></tr>
+        <tr><td>Money Laundering</td><td>Disguising illegal money as legitimate income</td><td>Shell companies</td></tr>
+        <tr><td>Insider Trading</td><td>Using confidential company info to trade stocks</td><td>Selling shares before announcing bad results</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Impact of Corruption</h3>
+  <ul>
+    <li>Destroys investor confidence</li>
+    <li>Creates unfair competition</li>
+    <li>Harms society through misuse of public funds</li>
+    <li>Leads to legal penalties and reputational damage</li>
+    <li>India ranks 93rd in Transparency International's Corruption Perception Index (2023)</li>
+  </ul>
+
+  <hr class="section-sep">
+
+  <h2>3.7 CSR Fund and Related Issues <span class="importance">⭐⭐⭐</span></h2>
+
+  <h3>Issues and Challenges with CSR in India</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Issue</th><th>Explanation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Greenwashing</strong></td><td>Companies claim CSR activities but don't actually follow through, only to improve image</td></tr>
+        <tr><td><strong>Compliance vs. Commitment</strong></td><td>Many companies do CSR only to comply with law, not because they genuinely care</td></tr>
+        <tr><td><strong>Geographic Concentration</strong></td><td>CSR funds go to areas near company headquarters, neglecting truly needy regions</td></tr>
+        <tr><td><strong>Lack of Transparency</strong></td><td>Inadequate reporting on how CSR funds are actually spent</td></tr>
+        <tr><td><strong>Duplication</strong></td><td>Multiple companies funding the same causes in the same area while other areas are neglected</td></tr>
+        <tr><td><strong>Misuse of Funds</strong></td><td>CSR money being diverted to company-controlled trusts for political or personal benefit</td></tr>
+        <tr><td><strong>COVID-19 Diversion</strong></td><td>Government allowed CSR funds for PM CARES Fund — raised questions about corporate autonomy</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Recent CSR Amendments (2020–21)</h3>
+  <ul>
+    <li>Unspent CSR funds must be transferred to a specified fund within 6 months of year-end</li>
+    <li>Ongoing projects: unspent funds transferred to Special Escrow Account</li>
+    <li>Penalty for non-compliance: fine on company + personal fine on officers</li>
+    <li>Companies must disclose CSR activities in annual report</li>
+  </ul>
+
+  <div class="answer-section">
+    <div class="answer-label label-10m">10-MARK ANSWER — CSR</div>
+    <div class="card">
+      <strong>Corporate Social Responsibility in Business — Concept, Mandate and Challenges</strong><br><br>
+      <strong>Meaning:</strong> Corporate Social Responsibility (CSR) refers to a company's obligation to act ethically and contribute positively to society beyond just making profit. It recognizes that businesses are part of a larger social ecosystem and must give back to communities, protect the environment, and treat stakeholders fairly.<br><br>
+      <strong>Carroll's Pyramid of CSR:</strong> Carroll described four levels of corporate responsibility — economic (be profitable), legal (obey laws), ethical (do what is right), and philanthropic (be a good corporate citizen). All four must be fulfilled for truly responsible business conduct.<br><br>
+      <strong>CSR in India — Legal Framework:</strong> India's Companies Act 2013 (Section 135) makes CSR mandatory for companies meeting certain thresholds (net profit ≥ ₹5 crore, turnover ≥ ₹1,000 crore, or net worth ≥ ₹500 crore). Such companies must spend 2% of their average net profits on CSR activities listed in Schedule VII — including education, healthcare, rural development, environmental sustainability, and gender equality. A CSR Committee with at least one independent director is mandatory.<br><br>
+      <strong>Indian Examples of CSR:</strong><br>
+      • Tata Steel's Jamshedpur model — built a model city with schools, hospitals for workers<br>
+      • HUL's Project Shakti — empowers rural women as micro-distributors<br>
+      • ITC e-Choupal — uses technology to help farmers get fair prices<br>
+      • Infosys Foundation — education and rural development<br><br>
+      <strong>Issues with CSR:</strong> Despite the mandate, challenges persist. Many companies engage in "greenwashing" — announcing CSR plans without genuine follow-through. Geographic concentration of CSR spending, lack of transparency in reporting, duplication of efforts, and the use of CSR funds for political purposes are major concerns. The government's decision to allow PM CARES Fund spending as CSR during COVID-19 raised debates about corporate autonomy.<br><br>
+      <strong>Conclusion:</strong> CSR is not charity — it is a strategic responsibility. Companies that genuinely embrace CSR build stronger brands, attract better employees, and earn greater public trust. India's mandatory CSR framework is a step forward, but effectiveness depends on genuine commitment, not mere compliance.
+    </div>
+  </div>
+
+  <div class="keywords">
+    <div class="kw">Corporate Governance</div>
+    <div class="kw">Agency Problem</div>
+    <div class="kw">Clause 49</div>
+    <div class="kw">Kumar Mangalam Birla</div>
+    <div class="kw">Narayana Murthy Committee</div>
+    <div class="kw">Section 135</div>
+    <div class="kw">CSR 2%</div>
+    <div class="kw">Carroll's Pyramid</div>
+    <div class="kw">Satyam Scam</div>
+    <div class="kw">Greenwashing</div>
+    <div class="kw">Stakeholders</div>
+    <div class="kw">Board of Directors</div>
+    <div class="kw">SEBI</div>
+    <div class="kw">Transparency</div>
+    <div class="kw">Accountability</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════ QUESTIONS ════════════════════════════════ -->
+<div class="tab-panel" id="questions">
+
+  <h2>20 Most Important Long-Answer Questions (10 Marks)</h2>
+  <ul class="q-list">
+    <li><div class="q-num">1</div>Explain the need, content and process of value education. How does it help in resolving ethical conflicts? ⭐⭐⭐</li>
+    <li><div class="q-num">2</div>What is an ethical dilemma? Explain with examples and discuss how ethical dilemmas are resolved. ⭐⭐⭐</li>
+    <li><div class="q-num">3</div>Discuss harmony at various levels — self, family, society, and nature. ⭐⭐⭐</li>
+    <li><div class="q-num">4</div>Distinguish between personal ethics, morality, law, and religion with suitable examples. ⭐⭐⭐</li>
+    <li><div class="q-num">5</div>Explain the four traditional ethical theories: Utilitarianism, Ethical Egoism, Ethics of Duties, and Ethics of Rights. ⭐⭐⭐</li>
+    <li><div class="q-num">6</div>Compare Stockholder Theory, Stakeholder Theory, and Social Contract Theory of business ethics. ⭐⭐⭐</li>
+    <li><div class="q-num">7</div>Explain Lawrence Kohlberg's Theory of Moral Development with all six stages and business relevance. ⭐⭐⭐</li>
+    <li><div class="q-num">8</div>What is Carol Gilligan's contribution to moral development theory? How does it differ from Kohlberg? ⭐⭐⭐</li>
+    <li><div class="q-num">9</div>Define Corporate Governance. Explain its need and importance in modern business. ⭐⭐⭐</li>
+    <li><div class="q-num">10</div>Trace the growth of corporate governance in India with reference to key committees and legislation. ⭐⭐⭐</li>
+    <li><div class="q-num">11</div>What is CSR? Explain Carroll's pyramid and India's CSR mandate under Companies Act 2013. ⭐⭐⭐</li>
+    <li><div class="q-num">12</div>Discuss the issues and challenges in CSR fund utilization in India with examples. ⭐⭐⭐</li>
+    <li><div class="q-num">13</div>What are the recommendations of the Kumar Mangalam Birla Committee on Corporate Governance? ⭐⭐⭐</li>
+    <li><div class="q-num">14</div>Explain Virtue Ethics and Feminist Ethics as contemporary ethical theories. ⭐⭐</li>
+    <li><div class="q-num">15</div>What are values? Explain different types of values and their role in shaping behavior. ⭐⭐</li>
+    <li><div class="q-num">16</div>Discuss the concept of self-exploration and its role in value education. ⭐⭐</li>
+    <li><div class="q-num">17</div>Explain the relationship between politics, business ethics and moral reasoning. ⭐⭐</li>
+    <li><div class="q-num">18</div>What is Ethical Deficit? What causes ethical erosion in organizations? Give Indian examples. ⭐⭐</li>
+    <li><div class="q-num">19</div>Discuss corruption and unethical practices in Indian business with case examples. ⭐⭐</li>
+    <li><div class="q-num">20</div>Write a note on happiness and prosperity as goals of value education. ⭐⭐</li>
+  </ul>
+
+  <hr class="section-sep">
+
+  <h2>20 Most Important Short-Answer Questions (2–5 Marks)</h2>
+  <ul class="q-list">
+    <li><div class="q-num">1</div>Define professional ethics and list its key principles.</li>
+    <li><div class="q-num">2</div>What is natural acceptance? Give an example.</li>
+    <li><div class="q-num">3</div>Distinguish between ethics and morality.</li>
+    <li><div class="q-num">4</div>What is Clause 49? Who introduced it and what are its key provisions?</li>
+    <li><div class="q-num">5</div>What is greenwashing? Give an example.</li>
+    <li><div class="q-num">6</div>Define Utilitarianism and give a business example.</li>
+    <li><div class="q-num">7</div>What is the Categorical Imperative? (Kant)</li>
+    <li><div class="q-num">8</div>What is the Satyam Scam? What governance lessons does it teach?</li>
+    <li><div class="q-num">9</div>Distinguish between Stockholder Theory and Stakeholder Theory.</li>
+    <li><div class="q-num">10</div>What is the role of SEBI in corporate governance in India?</li>
+    <li><div class="q-num">11</div>What is the Social Contract Theory of business?</li>
+    <li><div class="q-num">12</div>What is ethical egoism? How is it different from selfishness?</li>
+    <li><div class="q-num">13</div>List four types of values with examples.</li>
+    <li><div class="q-num">14</div>What are the three levels in Kohlberg's theory?</li>
+    <li><div class="q-num">15</div>Define CSR and state three CSR activities allowed under Schedule VII.</li>
+    <li><div class="q-num">16</div>What is values conflict? How can it be resolved?</li>
+    <li><div class="q-num">17</div>What is experiential validation in self-exploration?</li>
+    <li><div class="q-num">18</div>Define Virtue Ethics. Who founded it?</li>
+    <li><div class="q-num">19</div>What is the Agency Problem in corporate governance?</li>
+    <li><div class="q-num">20</div>What is insider trading? Give an example.</li>
+  </ul>
+
+</div>
+
+<!-- ════════════════════════════════ MODEL ANSWERS ════════════════════════════════ -->
+<div class="tab-panel" id="models">
+
+  <h2>Answer Writing Template — Theory Questions</h2>
+
+  <div class="card card-yellow">
+    <strong>Universal Structure for 10-Mark Answer</strong><br><br>
+    ① <strong>Definition/Meaning</strong> (2–3 lines)<br>
+    ② <strong>"Why it matters"</strong> — context or relevance (2–3 lines)<br>
+    ③ <strong>Key concepts/components</strong> — explained with bullet points or sub-headings<br>
+    ④ <strong>Comparison table or diagram</strong> (if applicable)<br>
+    ⑤ <strong>Real-world examples</strong> — Indian examples score more marks at JMI<br>
+    ⑥ <strong>Criticism or limitations</strong> — shows you understand deeply<br>
+    ⑦ <strong>Conclusion</strong> (2–3 lines with a balanced view)
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>Model Answer: Kohlberg vs Gilligan</h2>
+
+  <div class="card">
+    <strong>Kohlberg and Gilligan's Theories of Moral Development — A Comparative Analysis</strong><br><br>
+    <strong>Introduction:</strong> Moral development refers to the process by which individuals develop their sense of right and wrong. Two landmark theories — Lawrence Kohlberg's Justice-based model and Carol Gilligan's Care-based model — offer complementary perspectives on this development.<br><br>
+    <strong>Kohlberg's Theory (1958):</strong><br>
+    Kohlberg proposed that moral reasoning develops in three levels, each containing two stages:<br>
+    • <em>Pre-conventional Level (Stages 1–2):</em> Morality based on self-interest and fear of punishment.<br>
+    • <em>Conventional Level (Stages 3–4):</em> Morality based on social norms and maintaining law and order.<br>
+    • <em>Post-conventional Level (Stages 5–6):</em> Morality based on universal ethical principles and social contracts that transcend law.<br>
+    Kohlberg believed moral maturity = following universal abstract principles of justice and rights.<br><br>
+    <strong>Gilligan's Critique and Theory (1982):</strong><br>
+    Carol Gilligan, Kohlberg's student, criticized his theory for being male-biased (based only on male subjects). She argued that women develop moral reasoning through a lens of <em>care and relationships</em>, not just abstract justice. Her three stages are:<br>
+    • Stage 1: Self-survival (care for oneself)<br>
+    • Stage 2: Self-sacrifice (care for others at cost of self)<br>
+    • Stage 3: Universal Care (balanced care for self and others)<br><br>
+    <strong>Key Differences:</strong><br>
+    Kohlberg emphasizes justice, rights, and rules — Gilligan emphasizes care, relationships, and context. Kohlberg's subjects were all male — Gilligan included women. Kohlberg's highest stage is universal principles — Gilligan's is balanced care.<br><br>
+    <strong>Business Relevance:</strong><br>
+    Kohlberg's framework helps design ethical codes and compliance systems. Gilligan's framework supports empathetic leadership, HR policies sensitive to employee needs, and compassionate management practices.<br><br>
+    <strong>Conclusion:</strong> Both theories are valuable and complementary. A complete ethical framework for business must combine Kohlberg's emphasis on fairness and rights with Gilligan's sensitivity to care, relationships, and context.
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>Model Answer: Ethical Theories Compared</h2>
+
+  <div class="tip-box">Always end with "No single theory is perfect — real ethical decisions require combining insights."</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Theory</th><th>Core Question</th><th>Focus</th><th>Strength</th><th>Weakness</th></tr></thead>
+      <tbody>
+        <tr><td>Utilitarianism</td><td>What maximizes happiness?</td><td>Outcomes</td><td>Practical; useful for policy</td><td>Can sacrifice minority</td></tr>
+        <tr><td>Ethical Egoism</td><td>What serves my interest?</td><td>Self</td><td>Drives innovation</td><td>Justifies exploitation</td></tr>
+        <tr><td>Duty Ethics (Kant)</td><td>What is my duty?</td><td>Rules</td><td>Absolute; consistent</td><td>Too rigid; ignores outcomes</td></tr>
+        <tr><td>Rights/Justice</td><td>What are people's rights?</td><td>Rights</td><td>Protects individuals</td><td>Rights may conflict</td></tr>
+        <tr><td>Virtue Ethics</td><td>What would a good person do?</td><td>Character</td><td>Holistic; develops leaders</td><td>Vague standards</td></tr>
+        <tr><td>Feminist Ethics</td><td>Who do I care for?</td><td>Relationships</td><td>Inclusive; contextual</td><td>Can be subjective</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════ MNEMONICS ════════════════════════════════ -->
+<div class="tab-panel" id="mnemonics">
+
+  <h2>🧠 Complete Mnemonic Sheet</h2>
+
+  <div class="mnemonic-box">
+    <strong>Ethical Principles (Unit 1):</strong><br>
+    <code>HIFRTAC</code> = Honesty, Integrity, Fairness, Respect, Transparency, Accountability, Compassion
+  </div>
+
+  <div class="mnemonic-box">
+    <strong>Harmony Levels (Unit 1):</strong><br>
+    <code>SFHN</code> = Self → Family → Human-Human → Nature<br>
+    <em>"Some Families Help Nature"</em>
+  </div>
+
+  <div class="mnemonic-box">
+    <strong>Traditional Ethical Theories (Unit 2):</strong><br>
+    <code>UDER</code> = Utilitarianism, Duties (Kant), Egoism, Rights/Justice<br>
+    <em>"Under Dark Evening Rain"</em>
+  </div>
+
+  <div class="mnemonic-box">
+    <strong>Normative Business Theories (Unit 2):</strong><br>
+    <code>SSS</code> = Stockholder, Stakeholder, Social Contract
+  </div>
+
+  <div class="mnemonic-box">
+    <strong>Kohlberg's Stages (Unit 2):</strong><br>
+    <code>PS-GL-SC</code> = Punishment, Self-interest | Good-boy, Law-order | Social-contract, Universal<br>
+    <em>"Please Stop — Good Lawyers Serve Courts"</em>
+  </div>
+
+  <div class="mnemonic-box">
+    <strong>Carroll's CSR Pyramid (Unit 3):</strong><br>
+    <code>ELEP</code> = Economic, Legal, Ethical, Philanthropic<br>
+    <em>"Every Legal Effort Pays"</em>
+  </div>
+
+  <div class="mnemonic-box">
+    <strong>Indian CG Committees (Unit 3):</strong><br>
+    <code>CKN-JU</code> = CII, Kumar Mangalam Birla, Narayana Murthy, JJ Irani, Uday Kotak<br>
+    <em>"Companies Keep New Justice Uniform"</em>
+  </div>
+
+  <div class="mnemonic-box">
+    <strong>Types of Values (Unit 2):</strong><br>
+    <code>PSMS</code> = Personal, Social, Moral, Spiritual<br>
+    <em>"People Seek Moral Strength"</em>
+  </div>
+
+  <div class="mnemonic-box">
+    <strong>Corporate Governance Principles (Unit 3):</strong><br>
+    <code>TARAF</code> = Transparency, Accountability, Responsibility, Autonomy, Fairness
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>Important Thinkers Quick Table</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Thinker</th><th>Theory</th><th>Key Idea</th></tr></thead>
+      <tbody>
+        <tr><td>Jeremy Bentham</td><td>Utilitarianism</td><td>Greatest good for greatest number</td></tr>
+        <tr><td>J.S. Mill</td><td>Utilitarianism (refined)</td><td>Quality of pleasure matters too</td></tr>
+        <tr><td>Immanuel Kant</td><td>Duty Ethics</td><td>Categorical Imperative; universalizable rules</td></tr>
+        <tr><td>John Rawls</td><td>Justice/Rights</td><td>Veil of Ignorance; fairness to least advantaged</td></tr>
+        <tr><td>Aristotle</td><td>Virtue Ethics</td><td>Develop good character through habit</td></tr>
+        <tr><td>Carol Gilligan</td><td>Feminist/Care Ethics</td><td>Moral development through care and relationships</td></tr>
+        <tr><td>Lawrence Kohlberg</td><td>Moral Development</td><td>6 stages of moral reasoning development</td></tr>
+        <tr><td>Milton Friedman</td><td>Stockholder Theory</td><td>Business's only duty = make profit for shareholders</td></tr>
+        <tr><td>R.E. Freeman</td><td>Stakeholder Theory</td><td>Business serves all stakeholders</td></tr>
+        <tr><td>Archie Carroll</td><td>CSR Pyramid</td><td>Economic-Legal-Ethical-Philanthropic responsibilities</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════ LAST MINUTE ════════════════════════════════ -->
+<div class="tab-panel" id="revision">
+
+  <h2>⚡ One-Night-Before Revision Sheet</h2>
+
+  <div class="tip-box">Read this the night before your exam. Each point = 1 potential exam answer.</div>
+
+  <h3>Unit 1 — 10 Things to Remember</h3>
+  <ul>
+    <li>1. Value Education = teaching right vs wrong; process: Self-exploration → Natural Acceptance → Experiential Validation</li>
+    <li>2. Ethical Deficit = gap between expected and actual ethical behavior (Satyam = example)</li>
+    <li>3. Ethical Erosion = gradual decline of moral standards in organizations</li>
+    <li>4. Ethical Principles: <strong>HIFRTAC</strong></li>
+    <li>5. Personal Ethics (individual) ≠ Morality (social) ≠ Law (state) ≠ Religion (divine)</li>
+    <li>6. Ethical Dilemma = two morally weighted options; resolve by: list options → apply ethical theory → choose least harm</li>
+    <li>7. Happiness (Sukh) = inner contentment; Prosperity (Samriddhi) = feeling of enough physical needs met</li>
+    <li>8. Four levels of harmony: <strong>SFHN</strong> — Self, Family, Human-Human, Nature</li>
+    <li>9. Professional Ethics = moral standards specific to a profession (honesty, competence, confidentiality)</li>
+    <li>10. Politics + Business = creates conflict of interest; moral reasoning uses consequentialist, deontological, or virtue approaches</li>
+  </ul>
+
+  <h3>Unit 2 — 10 Things to Remember</h3>
+  <ul>
+    <li>1. Values → Attitudes → Behavior (chain of influence)</li>
+    <li>2. Types: <strong>PSMS</strong> — Personal, Social, Moral, Spiritual</li>
+    <li>3. Utilitarianism: Greatest happiness for greatest number (Bentham & Mill)</li>
+    <li>4. Duty Ethics (Kant): Categorical Imperative — act only by universalizable rules</li>
+    <li>5. Rights/Justice (Rawls): Veil of Ignorance; protect individual rights</li>
+    <li>6. Virtue Ethics (Aristotle): Develop good character through habit</li>
+    <li>7. Feminist Ethics (Gilligan): Care and relationships, not abstract rules</li>
+    <li>8. Stockholder (Friedman) = shareholders only; Stakeholder (Freeman) = everyone; Social Contract = society</li>
+    <li>9. Kohlberg: Pre-conventional → Conventional → Post-conventional (6 stages)</li>
+    <li>10. Gilligan: Self-survival → Self-sacrifice → Universal Care; based on care ethics; criticizes Kohlberg's male bias</li>
+  </ul>
+
+  <h3>Unit 3 — 10 Things to Remember</h3>
+  <ul>
+    <li>1. Corporate Governance = system of directing and controlling a company</li>
+    <li>2. Agency Problem = managers may not act in shareholders' best interest</li>
+    <li>3. Key governance elements: Transparency, Accountability, Fairness, Responsibility</li>
+    <li>4. CII Code (1998) → Kumar Mangalam Birla (1999) → Narayana Murthy (2003) → Companies Act 2013 → Uday Kotak (2017)</li>
+    <li>5. <strong>Clause 49</strong>: SEBI's mandatory governance code for listed companies — 50% independent directors, audit committee</li>
+    <li>6. Satyam Scam (2009): ₹14,000 crore fraud by Ramalinga Raju — showed governance failure</li>
+    <li>7. CSR = Carroll's Pyramid: <strong>ELEP</strong> — Economic, Legal, Ethical, Philanthropic</li>
+    <li>8. <strong>Section 135, Companies Act 2013</strong>: 2% net profit on CSR for qualifying companies</li>
+    <li>9. CSR Issues: Greenwashing, compliance vs commitment, geographic concentration, misuse of funds</li>
+    <li>10. Corruption types: Bribery, Embezzlement, Fraud, Conflict of Interest, Insider Trading, Money Laundering</li>
+  </ul>
+
+  <hr class="section-sep">
+
+  <h2>High-Priority Topics for Exam</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Topic</th><th>Unit</th><th>Likely Marks</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>Corporate Governance — meaning, need, importance</td><td>3</td><td>10</td><td>⭐⭐⭐ MUST</td></tr>
+        <tr><td>CSR — Carroll, Section 135, examples</td><td>3</td><td>10</td><td>⭐⭐⭐ MUST</td></tr>
+        <tr><td>Kohlberg's Theory of Moral Development</td><td>2</td><td>10</td><td>⭐⭐⭐ MUST</td></tr>
+        <tr><td>Ethical Theories (all 6)</td><td>2</td><td>10</td><td>⭐⭐⭐ MUST</td></tr>
+        <tr><td>Stakeholder vs Stockholder Theory</td><td>2</td><td>5–10</td><td>⭐⭐⭐ MUST</td></tr>
+        <tr><td>Indian CG Committees</td><td>3</td><td>10</td><td>⭐⭐⭐ MUST</td></tr>
+        <tr><td>Harmony at 4 levels</td><td>1</td><td>10</td><td>⭐⭐⭐ HIGH</td></tr>
+        <tr><td>Gilligan vs Kohlberg</td><td>2</td><td>10</td><td>⭐⭐⭐ HIGH</td></tr>
+        <tr><td>Ethics, Morality, Law, Religion — differences</td><td>1</td><td>5</td><td>⭐⭐ MEDIUM</td></tr>
+        <tr><td>Ethical Dilemma + resolution</td><td>1</td><td>5–10</td><td>⭐⭐ MEDIUM</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mistake-box">Don't mix up Stockholder Theory (Milton Friedman = shareholders only) with Stakeholder Theory (Freeman = all stakeholders). This is the most common mistake.</div>
+  <div class="mistake-box">Don't confuse Kohlberg's 6 stages with Gilligan's 3 stages. Many students merge them.</div>
+  <div class="mistake-box">For CSR — always mention SECTION 135 of Companies Act 2013 and the 2% rule. Without the legal reference, answers score lower.</div>
+
+</div>
+
+<!-- ════════════════════════════════ 2-DAY PLAN ════════════════════════════════ -->
+<div class="tab-panel" id="plan">
+
+  <h2>📅 2-Day Exam Preparation Strategy</h2>
+
+  <div class="day-block">
+    <div class="day-header">
+      <h3>DAY 1 — Units 1 & 2</h3>
+      <span>Ethics Foundations + Theories</span>
+    </div>
+    <div class="day-body">
+      <div class="time-slot"><span class="time">8:00–9:30 AM</span><span>Unit 1: Value education, ethical deficit/erosion, ethical principles. Write definitions in your own words.</span></div>
+      <div class="time-slot"><span class="time">9:30–11:00 AM</span><span>Unit 1: Ethics vs Morality vs Law vs Religion. Ethical dilemmas. Happiness & Prosperity.</span></div>
+      <div class="time-slot"><span class="time">11:00–12:00 PM</span><span>Unit 1: Harmony at 4 levels (Self, Family, Human-Human, Nature). Professional Ethics. Politics & Ethics.</span></div>
+      <div class="time-slot"><span class="time">12:00–1:00 PM</span><span>🍽️ LUNCH BREAK — Do a mental recap of Unit 1 while eating</span></div>
+      <div class="time-slot"><span class="time">1:00–2:30 PM</span><span>Unit 2: Values (types), Values conflict. Traditional theories: Utilitarianism, Duty Ethics.</span></div>
+      <div class="time-slot"><span class="time">2:30–4:00 PM</span><span>Unit 2: Rights & Justice, Ethical Egoism, Virtue Ethics, Feminist Ethics.</span></div>
+      <div class="time-slot"><span class="time">4:00–5:30 PM</span><span>Unit 2: Normative theories (Stockholder, Stakeholder, Social Contract). Make a comparison table.</span></div>
+      <div class="time-slot"><span class="time">5:30–6:00 PM</span><span>☕ BREAK — Quick walk or rest</span></div>
+      <div class="time-slot"><span class="time">6:00–7:30 PM</span><span>Unit 2: Kohlberg's theory (all 6 stages) + Gilligan's theory (3 stages) + Ethics of care.</span></div>
+      <div class="time-slot"><span class="time">7:30–9:00 PM</span><span>Write practice answers: 1 ten-marker (ethical theories) + 1 ten-marker (Kohlberg vs Gilligan)</span></div>
+      <div class="time-slot"><span class="time">9:00–9:30 PM</span><span>Review mnemonics for Units 1 & 2. Sleep by 10:30 PM.</span></div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header">
+      <h3>DAY 2 — Unit 3 + Full Revision</h3>
+      <span>Corporate Governance + CSR + Final Prep</span>
+    </div>
+    <div class="day-body">
+      <div class="time-slot"><span class="time">8:00–9:30 AM</span><span>Unit 3: Corporate Governance — meaning, need, importance. Agency problem. Key elements.</span></div>
+      <div class="time-slot"><span class="time">9:30–11:00 AM</span><span>Unit 3: Corporate Governance in India — timeline. All 5 committees. Clause 49. Satyam Scam.</span></div>
+      <div class="time-slot"><span class="time">11:00–12:00 PM</span><span>Unit 3: CSR — Carroll's pyramid. Section 135. Schedule VII activities. Indian examples.</span></div>
+      <div class="time-slot"><span class="time">12:00–1:00 PM</span><span>🍽️ LUNCH — Quiz yourself on CSR rules mentally</span></div>
+      <div class="time-slot"><span class="time">1:00–2:00 PM</span><span>Unit 3: Corruption types. CSR fund issues (greenwashing, concentration, misuse). 2020 amendments.</span></div>
+      <div class="time-slot"><span class="time">2:00–3:30 PM</span><span>Write 2 practice 10-mark answers: Corporate Governance + CSR.</span></div>
+      <div class="time-slot"><span class="time">3:30–5:00 PM</span><span>FULL REVISION: Read the Last-Minute tab. Flashcard all mnemonics.</span></div>
+      <div class="time-slot"><span class="time">5:00–6:00 PM</span><span>Review important thinkers table. Memorize key facts (2% CSR, Clause 49, Satyam ₹14,000 crore).</span></div>
+      <div class="time-slot"><span class="time">6:00–7:30 PM</span><span>Read through all 20 important questions. Mark which ones you can answer confidently.</span></div>
+      <div class="time-slot"><span class="time">7:30–8:30 PM</span><span>Dinner + light review of Unit 1 (your weakest unit?)</span></div>
+      <div class="time-slot"><span class="time">8:30–9:30 PM</span><span>Final revision of mnemonics sheet. Sleep early — rest is part of exam prep!</span></div>
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <h2>Exam Day Strategy</h2>
+
+  <div class="card card-yellow">
+    <strong>Time Management (2 Hour Exam, Max 75 Marks)</strong><br><br>
+    • <strong>First 5 minutes:</strong> Read all questions, plan which to attempt<br>
+    • <strong>10-mark questions:</strong> ~15 minutes each (attempt 3 = 45 marks)<br>
+    • <strong>5-mark questions:</strong> ~8 minutes each (attempt 3–4)<br>
+    • <strong>2-mark questions:</strong> 3–4 minutes each<br>
+    • <strong>Last 5 minutes:</strong> Review and add keywords if missing
+  </div>
+
+  <div class="card card-green">
+    <strong>Answer Writing Tips for JMI</strong><br>
+    ✓ Always start with a definition (gets you easy marks)<br>
+    ✓ Use headings and subheadings — even in theory answers<br>
+    ✓ Include Indian examples — professors at JMI appreciate contextual relevance<br>
+    ✓ End every answer with a 2-line conclusion<br>
+    ✓ Use keywords from the syllabus (Clause 49, Section 135, Categorical Imperative, etc.)<br>
+    ✓ If you forget a theory — write what you know + give an example. Partial credit is real.
+  </div>
+
+  <div class="card card-blue">
+    <strong>Topics to Skip if Extremely Short on Time</strong><br>
+    • Exact details of self-exploration process (can guess from context)<br>
+    • Exact wording of all Schedule VII CSR activities<br>
+    • CII 1998 Code details (just mention it as a starting point)<br><br>
+    <strong>Topics You CANNOT Skip:</strong><br>
+    • Kohlberg ✗ | CSR Section 135 ✗ | Kumar Mangalam Birla Committee ✗ | Carroll's Pyramid ✗ | Stockholder vs Stakeholder ✗
+  </div>
+
+</div>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+</script>
+
+</body>
+</html>
